@@ -5,6 +5,7 @@
     "noEmit": true,
     "customConditions": ["my-package-dev"],
     "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
   },
   "include": ["**/*.ts"],
 }
