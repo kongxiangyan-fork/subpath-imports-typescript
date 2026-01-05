@@ -1,27 +1,18 @@
 # Example of TypeScript Project with Subpath Imports
 
-An example code for the article [Setting up Subpath Imports in a TypeScript Project](https://dev.to/vitalets/setting-up-subpath-imports-in-a-typescript-project-4i0a).
+This branch changes vitest version from v2.0 to v4.0 in which the subpath imports is not respected.
 
-## How to run
+Run `npm install && npm run test`, you will see error messages like:
 
-1. Clone the repo
-   ```
-   git clone https://github.com/vitalets/subpath-imports-typescript.git
-   ```
+```
+Error: No known conditions for "#Source/utils.ts" specifier in "subpath-imports-typescript" package
+  Plugin: vite:import-analysis
+  File: D:/Sources/kongxiangyan-fork/subpath-imports-typescript/test/index.spec.ts:2:20
+  1  |  import { expect, test } from "vitest";
+  2  |  import { foo } from "#Source/utils.ts";
+     |                       ^
+  3  |  test("foo is 42", () => {
+  4  |    expect(foo).toBe(42);
+```
 
-2. Change directory to `subpath-imports-typescript`
-   ```
-   cd subpath-imports-typescript
-   ```
-
-3. Install dependencies
-   ```
-   npm install
-   ```
-
-4. Run commands:
-  * `npm run tsc` - type-check the entire project
-  * `npm run test` - run tests against the actual code in `src`
-  * `npm run build` - compile the code from `src` into the `dist` directory
-  * `npm start` - run the project from the `dist` directory
-  * `npm run tsx` - run the project with `tsx`
+Change branch back to `main` in which the vitest version is v2.0, the error will be gone.
